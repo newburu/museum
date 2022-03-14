@@ -76,3 +76,7 @@ end
 
 # ユーザ認証
 gem 'devise'
+
+# Slim
+gem 'slim'
+gem 'html2slim'

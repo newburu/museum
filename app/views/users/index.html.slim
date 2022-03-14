@@ -1,0 +1,5 @@
+div
+  h1.font-bold.text-4xl
+    | Users#index
+  - @users.each do |user|
+    = user.email

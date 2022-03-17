@@ -15,4 +15,9 @@ html
         = notice
       p.alert
         = alert
+      - if user_signed_in?
+        = button_to 'ログアウト', destroy_user_session_path, method: :delete
+      - else
+        = button_to 'サインアップ', new_user_registration_path, method: :get
+        = button_to 'ログイン', new_user_session_path, method: :get
       = yield

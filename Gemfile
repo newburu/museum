@@ -77,6 +77,14 @@ end
 # ユーザ認証
 gem 'devise'
 
+# SNS認証
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-twitter'
+
 # Slim
 gem 'slim'
 gem 'html2slim'
+
+# 環境変数
+gem 'dotenv-rails'

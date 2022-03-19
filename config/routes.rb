@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'museums/index'
+  get 'museums/show'
+  get 'museums/edit'
+  get 'museums/new'
+  get 'museum/index'
+  get 'museum/show'
+  get 'museum/edit'
+  get 'museum/new'
   get 'users/index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',

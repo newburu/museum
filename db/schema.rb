@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_14_142726) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_19_073826) do
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "picture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_likes_on_picture_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "museums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", limit: 100, null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_museums_on_user_id"
+  end
+
+  create_table "pictures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "museum_id", null: false
+    t.string "name", limit: 100, null: false
+    t.string "image", limit: 100, null: false
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["museum_id"], name: "index_pictures_on_museum_id"
+  end
+
+  create_table "styles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "museum_id", null: false
+    t.string "name", limit: 100, null: false
+    t.text "css"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["museum_id"], name: "index_styles_on_museum_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -32,4 +70,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_14_142726) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "pictures"
+  add_foreign_key "likes", "users"
+  add_foreign_key "museums", "users"
+  add_foreign_key "pictures", "museums"
+  add_foreign_key "styles", "museums"
 end

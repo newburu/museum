@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  museum: one
+  name: MyString
+  css: MyText
+  comment: MyText
+
+two:
+  museum: two
+  name: MyString
+  css: MyText
+  comment: MyText

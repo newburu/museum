@@ -1,23 +1,18 @@
 doctype html
 html
   head
-    title
-      | Museums
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta charset="utf-8"
+    meta content="IE=Edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    = display_meta_tags site: 'Museums'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  body
-    main.container.mx-auto.mt-28.px-5.flex
-      p.notice
-        = notice
-      p.alert
-        = alert
-      - if user_signed_in?
-        = button_to 'ログアウト', destroy_user_session_path, method: :delete
-      - else
-        = button_to 'サインアップ', new_user_registration_path, method: :get
-        = button_to 'ログイン', new_user_session_path, method: :get
+  body.antialiased.flex.flex-col.min-h-screen.font-sans.font-normal.leading-normal.bg-white.text-gray-400
+    = render 'shared/navigation'
+    main.w-full.flex-grow.px-5.my-7 role="main"
+      = flash_messages
       = yield
+    = render 'shared/footer'

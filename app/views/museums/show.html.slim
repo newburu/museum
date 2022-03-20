@@ -1,10 +1,12 @@
-p style="color: green" = notice
+h1.text-xl.text-gray-600.mr-10
+  | Museums
 
-== render @museum
+div class="border border-gray-200 my-7 shadow overflow-hidden rounded-sm"
+  dl
+    div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6"
+      dt.text-sm.font-medium.text-gray-500 Name
+      dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3" = @museum.name
 
-div
-  => link_to "Edit this museum", edit_museum_path(@museum)
-  '|
-  =< link_to "Back to museums", museums_path
-
-  = button_to "Destroy this museum", @museum, method: :delete
+= link_to 'Edit', edit_museum_path(@museum), class: 'hover:underline'
+'&nbsp;|
+= link_to 'Back', museums_path, class: 'hover:underline'

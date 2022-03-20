@@ -1,11 +1,9 @@
 = simple_form_for(@<%= singular_table_name %>) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = errors_for(@<%= singular_table_name %>)
 
-  .form-inputs
 <%- attributes.each do |attribute| -%>
+  .mb-4
     = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
 <%- end -%>
 
-  .form-actions
-    = f.button :submit
+  = f.button :submit, class: 'my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-4 rounded w-full'

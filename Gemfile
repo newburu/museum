@@ -90,3 +90,9 @@ gem 'dotenv-rails'
 
 # View関係
 gem 'simple_form'
+
+# Metaタグ
+gem 'meta-tags'
+
+# ページネーション
+gem 'pagy'

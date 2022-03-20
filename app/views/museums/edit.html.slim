@@ -1,10 +1,9 @@
-h1 Editing museum
+.md:mx-auto.w-full.lg:w-1/2.overflow-hidden.mx-0
+  .shadow-md.rounded.px-8.pt-6.pb-8.mb-4.flex.flex-col.justify-center.bg-gray-50
+    h2.text-center.text-xl.text-black.mb-3
+      Museums
+    = render 'form', museum: @museum
 
-== render "form", museum: @museum
-
-br
-
-div
-  => link_to "Show this museum", @museum
-  '|
-  =< link_to "Back to museums", museums_path
+= link_to 'Show', @museum
+'&nbsp;|
+= link_to 'Back', museums_path

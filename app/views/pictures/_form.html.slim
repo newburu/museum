@@ -1,0 +1,10 @@
+= simple_form_for(@picture) do |f|
+  = errors_for(@picture)
+
+  .mb-4
+    = f.association :museum
+    = f.input :name
+    = f.input :image
+    = f.input :comment
+
+  = f.button :submit, class: 'my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-4 rounded w-full'

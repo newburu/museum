@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pictures
   resources :museums
   get 'users/index'
   devise_for :users, controllers: {

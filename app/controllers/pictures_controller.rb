@@ -4,6 +4,8 @@ class PicturesController < ApplicationController
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
+    @q = Picture.ransack(museum_user_id_eq: current_user.try(:id))
+    @pictures = @q.result
   end
 
   # GET /pictures/1 or /pictures/1.json

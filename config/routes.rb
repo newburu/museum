@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'museums/index'
-  get 'museums/show'
-  get 'museums/edit'
-  get 'museums/new'
-  get 'museum/index'
-  get 'museum/show'
-  get 'museum/edit'
-  get 'museum/new'
+  resources :styles
+  resources :pictures
+  resources :museums
   get 'users/index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -19,5 +14,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: "users#index"
+  root to: "museums#index"
 end

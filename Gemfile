@@ -83,8 +83,16 @@ gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 
 # Slim
-gem 'slim'
-gem 'html2slim'
+gem 'slim-rails'
 
 # 環境変数
 gem 'dotenv-rails'
+
+# View関係
+gem 'simple_form'
+
+# Metaタグ
+gem 'meta-tags'
+
+# ページネーション
+gem 'pagy'

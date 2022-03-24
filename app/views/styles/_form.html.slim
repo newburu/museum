@@ -1,0 +1,13 @@
+= simple_form_for(@style) do |f|
+  = errors_for(@style)
+
+  .mb-4
+    = f.association :museum
+  .mb-4
+    = f.input :name
+  .mb-4
+    = f.input :css
+  .mb-4
+    = f.input :comment
+
+  = f.button :submit, class: 'my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-4 rounded w-full'

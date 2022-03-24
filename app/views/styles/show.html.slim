@@ -1,0 +1,22 @@
+h1.text-xl.text-gray-600.mr-10
+
+  = title('Style')
+
+div class="border border-gray-200 my-7 shadow overflow-hidden rounded-sm"
+  dl
+    div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6"
+      dt.text-sm.font-medium.text-gray-500 Museum
+      dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3" = @style.museum.name
+    div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6"
+      dt.text-sm.font-medium.text-gray-500 Name
+      dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3" = @style.name
+    div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6"
+      dt.text-sm.font-medium.text-gray-500 Css
+      dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3" = @style.css
+    div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6"
+      dt.text-sm.font-medium.text-gray-500 Comment
+      dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-3" = @style.comment
+
+= link_to 'Edit', edit_style_path(@style), class: 'hover:underline'
+'&nbsp;|
+= link_to 'Back', styles_path, class: 'hover:underline'

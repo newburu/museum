@@ -96,3 +96,6 @@ gem 'meta-tags'
 
 # ページネーション
 gem 'pagy'
+
+# 検索
+gem 'ransack'

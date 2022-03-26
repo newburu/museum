@@ -4,7 +4,7 @@ class MuseumsController < ApplicationController
   # GET /museums or /museums.json
   def index
     @q = Museum.ransack(user_id_eq: current_user.try(:id))
-    @museums = @q.result
+    @pagy, @museums = pagy(@q.result)
   end
 
   # GET /museums/1 or /museums/1.json

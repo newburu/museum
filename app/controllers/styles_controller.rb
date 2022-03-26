@@ -4,7 +4,7 @@ class StylesController < ApplicationController
   # GET /styles or /styles.json
   def index
     @q = Style.ransack(museum_user_id_eq: current_user.try(:id))
-    @styles = @q.result
+    @pagy, @styles = pagy(@q.result)
   end
 
   # GET /styles/1 or /styles/1.json

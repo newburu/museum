@@ -14,7 +14,7 @@ html
 
   body.antialiased.flex.flex-col.min-h-screen.font-sans.font-normal.leading-normal.bg-white.text-gray-400
     = render 'shared/navigation'
-    main.w-full.flex-grow.px-5.my-7 role="main"
+    main.container.mx-auto.w-full.flex-grow.px-5.my-7 role="main"
       = flash_messages
       = yield
     = render 'shared/footer'

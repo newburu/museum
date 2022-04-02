@@ -147,6 +147,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.3-x86_64-linux)
+      racc (~> 1.4)
     oauth (0.5.8)
     omniauth (2.0.4)
       hashie (>= 3.4.6)
@@ -238,6 +240,8 @@ GEM
     strscan (3.0.1)
     tailwindcss-rails (2.0.7-x86_64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.7-x86_64-linux)
+      railties (>= 6.0.0)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
@@ -267,6 +271,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap

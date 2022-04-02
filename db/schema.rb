@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_19_073826) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_02_052020) do
+  create_table "follows", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "museum_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["museum_id"], name: "index_follows_on_museum_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
+  end
+
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "picture_id", null: false
@@ -70,6 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_19_073826) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "follows", "museums"
+  add_foreign_key "follows", "users"
   add_foreign_key "likes", "pictures"
   add_foreign_key "likes", "users"
   add_foreign_key "museums", "users"

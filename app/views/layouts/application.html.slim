@@ -10,9 +10,11 @@ html
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
+    script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+
   body.antialiased.flex.flex-col.min-h-screen.font-sans.font-normal.leading-normal.bg-white.text-gray-400
     = render 'shared/navigation'
-    main.w-full.flex-grow.px-5.my-7 role="main"
+    main.container.mx-auto.w-full.flex-grow.px-5.my-7 role="main"
       = flash_messages
       = yield
     = render 'shared/footer'

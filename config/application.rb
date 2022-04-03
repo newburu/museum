@@ -21,5 +21,8 @@ module Museums
 
     # slimに変更
     config.generators.template_engine = :slim
+
+    # Punditのエラーを403にする
+    config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
   end
 end

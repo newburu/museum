@@ -19,6 +19,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
+    authorize @picture
   end
 
   # POST /pictures or /pictures.json
@@ -38,6 +39,8 @@ class PicturesController < ApplicationController
 
   # PATCH/PUT /pictures/1 or /pictures/1.json
   def update
+    authorize @picture
+
     respond_to do |format|
       if @picture.update(picture_params)
         format.html { redirect_to picture_url(@picture), notice: "Picture was successfully updated." }
@@ -51,8 +54,9 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
-    @picture.destroy
+    authorize @picture
 
+    @picture.destroy
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
       format.json { head :no_content }

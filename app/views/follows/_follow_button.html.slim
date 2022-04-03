@@ -1,0 +1,5 @@
+turbo-frame#follow-button
+  - if museum.followed_by?(current_user)
+    = button_to 'UnFollow', museum_follow_path(museum), method: :delete, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'
+  - else
+    = button_to 'Follow', museum_follow_path(museum), method: :post, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'

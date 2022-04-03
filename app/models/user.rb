@@ -6,6 +6,8 @@ class User < ApplicationRecord
          # Twitter API認証用に追加
          :omniauthable, omniauth_providers: [:twitter]
 
+  has_many :follows, dependent: :destroy
+
   # Twitter認証ログイン用
   # ユーザーの情報があれば探し、無ければ作成する
   def self.find_for_oauth(auth)

@@ -1,9 +1,9 @@
 class MuseumsController < ApplicationController
-  before_action :set_museum, only: %i[ show edit update destroy ]
+  before_action :set_museum, only: %i[ show edit update destroy follow]
 
   # GET /museums or /museums.json
   def index
-    @q = Museum.ransack(user_id_eq: current_user.try(:id))
+    @q = Museum.ransack()
     @pagy, @museums = pagy(@q.result)
   end
 

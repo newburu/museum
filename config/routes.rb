@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :styles
   resources :pictures
-  resources :museums
+  resources :museums do
+    resource :follow, only: %i[create destroy]
+  end
+
   get 'users/index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',

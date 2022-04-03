@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :styles
-  resources :pictures
+  resources :pictures do
+    resource :like, only: %i[create destroy]
+  end
   resources :museums do
     resource :follow, only: %i[create destroy]
   end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:twitter]
 
   has_many :follows, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   # Twitter認証ログイン用
   # ユーザーの情報があれば探し、無ければ作成する

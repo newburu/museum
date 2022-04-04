@@ -18,6 +18,7 @@ class MuseumsController < ApplicationController
 
   # GET /museums/1/edit
   def edit
+    authorize @museum
   end
 
   # POST /museums or /museums.json
@@ -37,6 +38,8 @@ class MuseumsController < ApplicationController
 
   # PATCH/PUT /museums/1 or /museums/1.json
   def update
+    authorize @museum
+
     respond_to do |format|
       if @museum.update(museum_params)
         format.html { redirect_to museum_url(@museum), notice: "Museum was successfully updated." }
@@ -50,8 +53,9 @@ class MuseumsController < ApplicationController
 
   # DELETE /museums/1 or /museums/1.json
   def destroy
-    @museum.destroy
+    authorize @museum
 
+    @museum.destroy
     respond_to do |format|
       format.html { redirect_to museums_url, notice: "Museum was successfully destroyed." }
       format.json { head :no_content }

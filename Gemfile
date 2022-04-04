@@ -74,8 +74,9 @@ group :test do
   gem "webdrivers"
 end
 
-# ユーザ認証
+# ユーザ認証/認可
 gem 'devise'
+gem 'pundit'
 
 # SNS認証
 gem 'omniauth'

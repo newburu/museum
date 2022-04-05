@@ -100,3 +100,7 @@ gem 'pagy'
 
 # 検索
 gem 'ransack'
+
+# 画像関係
+gem 'carrierwave'
+gem 'mini_magick'

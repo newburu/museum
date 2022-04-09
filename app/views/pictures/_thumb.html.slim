@@ -1,0 +1,5 @@
+- if picture.present?
+  .w-full.h-1/3
+    = link_to picture do
+      = image_tag picture.image.thumb.url, class: "w-32 h-32 md:w-64 md:h-64 lg:w-96 lg:h-96"
+    = render 'likes/like_count', picture: picture

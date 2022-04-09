@@ -5,17 +5,16 @@ div class="border border-gray-200 shadow overflow-hidden rounded-sm"
   div
     artcle
       div
-        div class="flex-direction: column; padding-bottom: 0px; padding-top: 0px;"
-          - pictures = @museum.pictures
-          - for idx in 0..pictures.size do
-            - p idx
-            - p pictures[idx]
-            - if idx % 3 == 0
-              div class="flex justify-between flex-wrap"
-                div class="w-1/3 h-full"
-                  = render "pictures/thumb", picture: pictures[idx]
-                div class="w-1/3 h-full"
-                  = render "pictures/thumb", picture: pictures[idx+1]
-                div class="w-1/3 h-full"
-                  = render "pictures/thumb", picture: pictures[idx+2]
-            - idx += 3
+        - pictures = @museum.pictures
+        - for idx in 0..pictures.size do
+          - p idx
+          - p pictures[idx]
+          - if idx % 3 == 0
+            div class="flex justify-between flex-wrap"
+              div class="w-1/3 h-full"
+                = render "pictures/thumb", picture: pictures[idx]
+              div class="w-1/3 h-full"
+                = render "pictures/thumb", picture: pictures[idx+1]
+              div class="w-1/3 h-full"
+                = render "pictures/thumb", picture: pictures[idx+2]
+          - idx += 3

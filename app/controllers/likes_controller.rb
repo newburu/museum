@@ -6,9 +6,9 @@ class LikesController < ApplicationController
     current_user.likes.create!(picture: @picture)
 
     render turbo_stream: turbo_stream.replace(
-      'like-button',
+      params[:html_id],
       partial: 'likes/like_button',
-      locals: { picture: @picture, like: true },
+      locals: { picture: @picture, html_id: params[:html_id] },
     )
   end
 
@@ -17,9 +17,9 @@ class LikesController < ApplicationController
     like.destroy!
 
     render turbo_stream: turbo_stream.replace(
-      'like-button',
+      params[:html_id],
       partial: 'likes/like_button',
-      locals: { picture: @picture, like: false },
+      locals: { picture: @picture, html_id: params[:html_id] },
     )
   end
 

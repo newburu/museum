@@ -1,7 +1,7 @@
-turbo-frame#like-button
+turbo-frame id="#{html_id}"
   - if picture.liked_by?(current_user)
-    = button_to picture_like_path(picture), method: :delete, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'
+    = button_to picture_like_path(picture, html_id: html_id), method: :delete, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'
       i.fas.fa-heart
   - else
-    = button_to picture_like_path(picture), method: :post, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'
+    = button_to picture_like_path(picture, html_id: html_id), method: :post, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'
       i.far.fa-heart

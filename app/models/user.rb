@@ -6,6 +6,8 @@ class User < ApplicationRecord
          # Twitter API認証用に追加
          :omniauthable, omniauth_providers: [:twitter]
 
+  has_many :museums, dependent: :destroy
+
   has_many :follows, dependent: :destroy
   has_many :likes, dependent: :destroy
 
@@ -13,10 +15,10 @@ class User < ApplicationRecord
   # ユーザーの情報があれば探し、無ければ作成する
   def self.find_for_oauth(auth)
     user = User.find_by(uid: auth.uid, provider: auth.provider)
-
     user ||= User.new(
       uid: auth.uid,
       provider: auth.provider,
+      code: auth[:info][:nickname],
       name: auth[:info][:name],
       email: User.dummy_email(auth),
       password: Devise.friendly_token[0, 20],

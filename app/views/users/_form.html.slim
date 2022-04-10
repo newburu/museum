@@ -1,0 +1,8 @@
+= simple_form_for(@user) do |f|
+  = errors_for(@user)
+
+  .mb-4
+    = f.input :code
+    = f.input :name
+
+  = f.button :submit, class: 'my-2 bg-blue-500 hover:bg-blue-700 text-white font-bold text-sm py-2 px-4 rounded w-full'

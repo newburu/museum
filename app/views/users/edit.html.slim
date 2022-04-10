@@ -1,0 +1,10 @@
+.md:mx-auto.w-full.lg:w-1/2.overflow-hidden.mx-0
+  .shadow-md.rounded.px-8.pt-6.pb-8.mb-4.flex.flex-col.justify-center.bg-gray-50
+    h2.text-center.text-xl.text-black.mb-3
+
+      = title('Editing User')
+    = render 'form', user: @user
+
+= link_to 'Show', user_path(code: @user.code)
+'&nbsp;|
+= link_to 'Back', users_index_path

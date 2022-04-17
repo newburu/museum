@@ -5,11 +5,14 @@ div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
   table.min-w-full.divide-y.divide-gray-200.border-collapse
     thead.bg-gray-200
       tr
+        th.px-3.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider scope='col' Code
         th.px-3.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider scope='col' Name
-        th.px-3.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider scope='col' Email 
+        th.px-3.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider scope='col' colspan='3'
     tbody.bg-white.divide-y.divide-gray-200
       - @users.each do |user|
         tr.bg-white.hover:bg-blue-50.hover:text-gray-500
+          td.px-3.py-3.text-sm.whitespace-nowrap = user.code
           td.px-3.py-3.text-sm.whitespace-nowrap = user.name
-          td.px-3.py-3.text-sm.whitespace-nowrap = user.email
-
+          td.px-3.py-3.text-sm.whitespace-nowrap = link_to 'Show', user_path(code: user.code), class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'
+          td.px-3.py-3.text-sm.whitespace-nowrap = link_to 'Edit', edit_user_path(code: user.code), class: 'inline-flex text-xs leading-5 font-semibold text-yellow-500 hover:underline cursor-pointer'
+          td.px-3.py-3.text-sm.whitespace-nowrap = button_to 'Destroy', user_path(code: user.code), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'inline-flex text-xs leading-5 font-semibold text-red-500 hover:underline cursor-pointer'

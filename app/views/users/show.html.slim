@@ -1,11 +1,14 @@
 div
   header
     div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
-      div.mt-1.text-sm.text-gray-900.sm:mt-0.sm:row-span-2
-        = image_tag @user.image.thumb.url, class: "w-32 h-32"
+      div.mt-1.text-sm.text-gray-900.sm:mt-0.sm:row-span-3.sm:grid.sm:justify-center.sm:content-center
+        = image_tag @user.image.thumb.url, class: "w-32 h-32 rounded-full"
       div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
         div.mt-1.text-sm.text-gray-900.sm:mt-0
           = @user.name
+      div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
+        div.mt-1.text-sm.text-gray-900.sm:mt-0
+          = @user.code
       div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
         div.mt-1.text-sm.text-gray-900.sm:mt-0
           = "Museum#{@user.museums.size}件　フォロー中#{@user.follows.size}件"

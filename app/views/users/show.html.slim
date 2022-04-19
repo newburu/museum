@@ -1,14 +1,15 @@
 div
   header
-    div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
-      div.mt-1.text-sm.text-gray-900.sm:mt-0.sm:row-span-3.sm:grid.sm:justify-center.sm:content-center
-        = image_tag @user.image.thumb.url, class: "w-32 h-32 rounded-full"
-      div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
-        div.mt-1.text-sm.text-gray-900.sm:mt-0
-          = @user.name
-      div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
-        div.mt-1.text-sm.text-gray-900.sm:mt-0
-          = @user.code
-      div.bg-gray-50.px-4.py-1.sm:grid.sm:grid-cols-2.sm:gap-4.sm:px-6
-        div.mt-1.text-sm.text-gray-900.sm:mt-0
-          = "Museum#{@user.museums.size}件　フォロー中#{@user.follows.size}件"
+    div.bg-gray-50.flex.sm:px-6.sm:py-1
+      div.mt-1.text-sm.text-gray-900.flex.w-1/3.justify-center.content-center
+        = image_tag @user.image.thumb.url, class: "w-20 h-20 w-32 h-32 rounded-full"
+      section.flexbox.w-2/3
+        div.bg-gray-50.gap-4.sm:px-6
+          div.mt-1.text-sm.text-gray-900
+            = @user.name
+        div.bg-gray-50.gap-4.sm:px-6
+          div.mt-1.text-sm.text-gray-900
+            = @user.code
+        div.bg-gray-50.gap-4.sm:px-6
+          div.mt-1.text-sm.text-gray-900
+            = "Museum#{@user.museums.size}件　フォロー中#{@user.follows.size}件"

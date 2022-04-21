@@ -11,6 +11,12 @@ class User < ApplicationRecord
   has_many :follows, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  mount_uploader :image, ImageUploader
+
+  def to_param
+    code
+  end
+
   # Twitter認証ログイン用
   # ユーザーの情報があれば探し、無ければ作成する
   def self.find_for_oauth(auth)

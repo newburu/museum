@@ -40,4 +40,14 @@ class User < ApplicationRecord
     "#{Time.now.strftime('%Y%m%d%H%M%S').to_i}-#{auth.uid}-#{auth.provider}@example.com"
   end
 
+  # ダミーのユニークになるコードを作成
+  def self.dummy_uniq_code()
+    code = ""
+    while code.blank? || User.find_by(code: code).present? do
+      code = SecureRandom.alphanumeric(10)
+    end
+
+    code
+  end
+  
 end

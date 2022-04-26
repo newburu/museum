@@ -29,7 +29,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
+        format.html { redirect_to museum_url(@picture.museum), notice: "Picture was successfully created." }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully updated." }
+        format.html { redirect_to museum_url(@picture.museum), notice: "Picture was successfully updated." }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit, status: :unprocessable_entity }

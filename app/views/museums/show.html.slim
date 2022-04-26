@@ -18,3 +18,7 @@ div class="border border-gray-200 shadow overflow-hidden rounded-sm"
               div class="w-1/3 h-full"
                 = render "pictures/thumb", picture: pictures[idx+2]
           - idx += 3
+
+= link_to new_picture_path(museum_id: @museum.id), class: 'px-2 py-1 inline-flex text-xs font-semibold rounded-full bg-green-100 text-green-800 hover:bg-green-200'
+  | New Picture
+  i.fas.fa-circle-plus

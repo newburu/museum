@@ -2,7 +2,7 @@
   = errors_for(@picture)
 
   .mb-4
-    = f.association :museum
+    = f.association :museum, as: :hidden
     = f.input :name
     = f.input :image
     = f.input :comment

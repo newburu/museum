@@ -29,7 +29,7 @@ class User < ApplicationRecord
       email: User.dummy_email(auth),
       password: Devise.friendly_token[0, 20],
     )
-    user.image = auth.info.image.gsub("_normal","") if user.provider == "twitter"
+    user.remote_image_url = auth.info.image.gsub("_normal","") if user.provider == "twitter"
     user.save!
 
     user

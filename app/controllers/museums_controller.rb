@@ -24,6 +24,7 @@ class MuseumsController < ApplicationController
   # POST /museums or /museums.json
   def create
     @museum = Museum.new(museum_params)
+    @museum.user = current_user
 
     respond_to do |format|
       if @museum.save
@@ -70,6 +71,6 @@ class MuseumsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def museum_params
-      params.require(:museum).permit(:user_id, :name, :comment)
+      params.require(:museum).permit(:name, :comment)
     end
 end

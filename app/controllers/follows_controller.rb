@@ -6,9 +6,9 @@ class FollowsController < ApplicationController
     current_user.follows.create!(museum: @museum)
 
     render turbo_stream: turbo_stream.replace(
-      'follow-button',
+      params[:html_id],
       partial: 'follows/follow_button',
-      locals: { museum: @museum, follow: true },
+      locals: { museum: @museum, html_id: params[:html_id] },
     )
   end
 
@@ -17,9 +17,9 @@ class FollowsController < ApplicationController
     follow.destroy!
 
     render turbo_stream: turbo_stream.replace(
-      'follow-button',
+      params[:html_id],
       partial: 'follows/follow_button',
-      locals: { museum: @museum, follow: false },
+      locals: { museum: @museum, html_id: params[:html_id] },
     )
   end
 

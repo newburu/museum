@@ -8,4 +8,8 @@ class Museum < ApplicationRecord
     following_users.include?(user)
   end
 
+  def open_at_range
+    "#{self.open_start_at}〜#{self.open_end_at}"
+  end
+
 end

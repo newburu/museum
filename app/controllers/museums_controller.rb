@@ -71,6 +71,6 @@ class MuseumsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def museum_params
-      params.require(:museum).permit(:name, :comment)
+      params.require(:museum).permit(:name, :open_start_at, :open_end_at, :comment)
     end
 end

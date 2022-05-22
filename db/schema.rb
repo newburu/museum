@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_10_070714) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_22_130917) do
   create_table "follows", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "museum_id", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_10_070714) do
   create_table "museums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name", limit: 100, null: false
+    t.date "open_start_at"
+    t.date "open_end_at"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -11,7 +11,7 @@ class MuseumDecorator < ApplicationDecorator
   #   end
 
   def open_at_range
-    "#{self.open_start_at}〜#{self.open_end_at}" if self.open_start_at.present? || self.open_end_at.present?
+    "#{l(self.open_start_at, format: :long)}〜#{l(self.open_end_at, format: :long)}" if self.open_start_at.present? || self.open_end_at.present?
   end
 
 end

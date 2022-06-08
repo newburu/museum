@@ -93,6 +93,7 @@ gem 'dotenv-rails'
 
 # View関係
 gem 'simple_form'
+gem 'draper'
 
 # Metaタグ
 gem 'meta-tags'

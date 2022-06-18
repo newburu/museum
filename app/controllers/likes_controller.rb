@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     render turbo_stream: turbo_stream.replace(
       params[:html_id],
       partial: 'likes/like_button',
-      locals: { picture: @picture, html_id: params[:html_id] },
+      locals: { picture: @picture, html_id: params[:html_id], count_flg: params[:count_flg] },
     )
   end
 
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     render turbo_stream: turbo_stream.replace(
       params[:html_id],
       partial: 'likes/like_button',
-      locals: { picture: @picture, html_id: params[:html_id] },
+      locals: { picture: @picture, html_id: params[:html_id], count_flg: params[:count_flg] },
     )
   end
 

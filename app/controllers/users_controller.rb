@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -61,6 +62,12 @@ class UsersController < ApplicationController
       format.html { redirect_to users_index_path, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # GET /users/1/timeline
+  def timeline
+    # フォローしているMuseumの画像を作成日順に取得
+    @pictures = current_user.follows.map{|follow|follow.museum.pictures}.flatten.sort_by(&:created_at)
   end
 
   private

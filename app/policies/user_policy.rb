@@ -24,6 +24,10 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  def timeline?
+    record == user
+  end
+
   class Scope < Scope
     def resolve
       scope.all

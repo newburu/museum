@@ -1,0 +1,8 @@
+div class="border border-gray-200 shadow overflow-hidden rounded-sm"
+  header
+  div
+    artcle
+      div class="flex justify-between flex-wrap"
+        - @pictures.each_with_index do |picture, idx|
+          div class="w-1/3 h-full"
+            = render "pictures/thumb", picture: picture

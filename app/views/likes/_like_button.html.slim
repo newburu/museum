@@ -1,4 +1,4 @@
-- count_flg |= false
+- count_flg = ActiveRecord::Type::Boolean.new.cast(count_flg)
 turbo-frame id="#{html_id}"
   - if picture.liked_by?(current_user)
     = button_to picture_like_path(picture, html_id: html_id, count_flg: count_flg), method: :delete, class: 'inline-flex text-xs leading-5 font-semibold text-indigo-500 hover:underline cursor-pointer'

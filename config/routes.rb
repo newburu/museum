@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/index'
-  resources :users, param: :code, path: '/', only: [:show, :edit, :update, :destroy]
+  resources :users, param: :code, only: [:show, :edit, :update, :destroy]
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
